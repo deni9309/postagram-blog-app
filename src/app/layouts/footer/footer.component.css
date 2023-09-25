@@ -1,0 +1,20 @@
+footer {
+    height: 130px;
+    padding: 0.5rem;
+    background-color: var(--navbar-footer-color);
+    margin-top: 85vh;
+    margin-bottom: 0px;
+}
+
+.site-logo {
+    font-size: 1rem;
+}
+
+.nav-link {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+p {
+    font-size: 1rem;
+}

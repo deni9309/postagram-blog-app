@@ -3,13 +3,60 @@
 
 :root {
     --primary-color: #026467;
+    --primary-color-hover: #009398;
     --secondary-color: #e5f5ea;
     --body-text-color: #596392;
     --navbar-footer-color: #f9f9f9;
+    --accent-color: #e9df00;
+}
+
+html,
+* {
+    transition: all 0.2s ease-in-out;
 }
 
 body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
+    color: var(--body-text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-underline-offset: 4px;
+    text-decoration: underline solid var(--primary-color) 0.4px;
+}
+
+.site-logo {
+    padding: 0.8rem 1rem;
+    border-radius: 0.3rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
+.shadow-effect {
+    border: none;
+    box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.3);
+}
+
+/*----------------- forms ---------------*/
+input {
+    height: 50px;
+    width: 100%;
+    padding-left: 20px;
+    color: var(--body-text-color);
+}
+
+input::placeholder {
     color: var(--body-text-color);
 }
