@@ -2,7 +2,6 @@ footer {
     height: 130px;
     padding: 0.5rem;
     background-color: var(--navbar-footer-color);
-    margin-top: 85vh;
     margin-bottom: 0px;
 }
 

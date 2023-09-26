@@ -1,0 +1,14 @@
+section.featured-section {
+    padding-left: 110px;
+    padding-bottom: 2rem;
+    padding-right: 110px;
+    background-color: var(--primary-color);
+}
+
+@media screen and (max-width:800px) {
+    :host > section.featured-section#featured-section {
+        padding-left: 0.5rem;
+        padding-bottom: 1rem;
+        padding-right: 0.5rem;
+    }
+}
