@@ -3,6 +3,12 @@ section.featured-section {
     padding-bottom: 2rem;
     padding-right: 110px;
     background-color: var(--primary-color);
+    border-bottom: 10px solid;
+}
+
+.parallax {
+    background-image: url("src/assets/featured-section.jpg");
+    background-blend-mode: screen;
 }
 
 @media screen and (max-width:800px) {
