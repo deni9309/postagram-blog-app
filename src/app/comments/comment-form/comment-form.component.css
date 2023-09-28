@@ -1,0 +1,12 @@
+.parallax {
+    background-image: url('/assets/laptop-open.jpg');
+    alt: 'Laptop open';
+    background-blend-mode: soft-light;
+}
+
+article > div:first-of-type {
+    color: white;
+    font-weight: 600;
+    border-bottom: 10px solid var(--body-text-color);
+}
+

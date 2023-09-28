@@ -1,5 +1,6 @@
 .card {
-    width: 300px;
+    max-width: 270px;
+    font-size: 1rem;
 }
 
 .card:hover {
@@ -8,12 +9,13 @@
 
 article h5 {
     text-transform: uppercase;
+    font-size: 1em;
 }
 
 section {
-    padding-left: 2rem;
+    padding-left: 1.2rem;
     padding-bottom: 1rem;
-    padding-right: 2rem;
+    padding-right: 1.2rem;
 }
 
 @media screen and (max-width:800px) {
@@ -23,9 +25,3 @@ section {
     }
 }
 
-@media screen and (max-width:1280px) {
-    article.card section {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-    }
-}

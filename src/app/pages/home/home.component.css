@@ -2,7 +2,7 @@ section.featured-section {
     padding-left: 110px;
     padding-bottom: 2rem;
     padding-right: 110px;
-    background-color: var(--primary-color);
+    background-color: darkslategray;
     border-bottom: 10px solid;
 }
 

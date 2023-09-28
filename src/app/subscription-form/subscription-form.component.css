@@ -2,18 +2,15 @@
     background-color: var(--accent-color);
 }
 
-.btn-sub {
-    min-height: 50px;
-    border: none;
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
+.parallax-border{
+    background-image: url('src/assets/bright-accent.jpg');
+    height: 10px;
 }
 
-.btn-sub:hover {
-   background-color: var(--primary-color-hover);
+.btn-custom-theme {
+    height: 50px;
 }
 
 .subs-text{
-    max-width: 500px;
+    max-width: 90%;
 }

@@ -1,11 +1,12 @@
 <section class="container">
-    <div class="row">
-        <div class="col-md-9">
-            <article class="card px-3 shadow-effect">
+    <div
+         class="d-flex flex-lg-row flex-md-row flex-column gap-2 flex-lg-shrink-0 flex-md-shrink-1 flex-sm-grow-1 align-items-lg-start align-items-md-start align-items-sm-center justify-content-center">
+        <div class="col-md-8">
+            <article class="card shadow-effect">
                 <img src="assets/single-post-dessert-category.jpg"
                      alt="Berries cheesecake"
                      class="card-img-top img-fluid">
-                <div class="card-body">
+                <div class="card-body px-lg-5 px-4">
                     <small class="bg-light text-danger text-center mx-1">Food</small>
                     <small class="bg-light text-success text-center mx-1">Featured</small>
                     <small class="bg-light text-info text-center mx-1">Views - 80,256</small>
@@ -25,9 +26,14 @@
                         beatae explicabo dolore enim provident.</p>
                 </div>
             </article>
-        </div>
-        <div class="col-md-3">
 
+            <app-comment-form></app-comment-form>
+            
+        </div>
+        <div class="posts d-flex flex-column align-items-center">
+            <app-post-card></app-post-card>
+            <app-post-card></app-post-card>
+            <app-post-card></app-post-card>
         </div>
     </div>
 </section>

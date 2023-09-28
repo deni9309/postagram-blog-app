@@ -1,4 +1,5 @@
 .parallax {
     background-image: url("src/assets/featured-section.jpg");
     background-blend-mode: soft-light;
+    border-bottom: 10px solid var(--body-text-color);
 }

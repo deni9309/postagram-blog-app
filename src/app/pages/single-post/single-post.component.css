@@ -1,4 +1,12 @@
 .card p {
-    text-justify: inter-word;
+    text-indent: 25px;
     text-align: justify;
+}
+
+.card img{
+    padding: 0;
+}
+
+ div.posts>app-post-card:not(:last-child){
+    margin-bottom: .5rem;
 }
