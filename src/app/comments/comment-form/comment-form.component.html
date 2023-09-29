@@ -1,19 +1,21 @@
 <section id="create-comment">
     <article class="card shadow-effect mt-2">
-        <div class="bg-secondary pt-5 rounded-top px-lg-5 px-1 parallax">
+        <div class="bg-secondary pt-5 rounded-top px-lg-5 px-md-4 px-4 parallax">
             <h4 class="ps-lg-5 fw-bold">Leave a Comment</h4>
             <p class="ps-lg-5">What's on your mind? Share it with others. </p>
         </div>
         <div class="card-body">
-            <form action=""
-                  class="d-flex flex-column col-lg-11 col-12 m-auto mb-2 px-md-5 px-2">
+            <form action="" autocomplete="off"
+                  class="d-flex flex-column col-12 m-auto mb-2 px-md-4 px-2">
                 <div class="form-group my-1">
                     <input type="text"
+                           name="name"
                            class="form-control"
                            placeholder="Your Name">
                 </div>
                 <div class="form-group my-1">
-                    <textarea rows="10"
+                    <textarea rows="5"
+                              name="comment"
                               class="form-control"
                               placeholder="Write your comment here. . ."></textarea>
                 </div>

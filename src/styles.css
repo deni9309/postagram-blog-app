@@ -60,9 +60,23 @@ a:hover {
 }
 
 /*----------------Custom theme----------------*/
-.bg-green-theme {
+/*---colors---*/
+.bg-primary-theme {
     background-color: var(--primary-color);
 }
+
+.bg-secondary-theme{
+    background-color: var(--secondary-color);
+}
+
+.bg-light-theme {
+    background-color: var(--navbar-footer-color);
+}
+
+.text-theme-primary{
+    color: var(--primary-color);
+}
+
 
 /*--- forms ---*/
 input {
