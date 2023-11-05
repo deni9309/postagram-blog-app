@@ -1,15 +1,38 @@
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <div class="collapse navbar-collapse justify-content-center">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-1"><a class="nav-link"
-                       href="">Travel</a></li>
-                <li class="nav-item mx-1"><a class="nav-link"
-                       href="">Art</a></li>
-                <li class="nav-item mx-1"><a class="nav-link"
-                       href="">Sports</a></li>
-                <li class="nav-item mx-1"><a class="nav-link"
-                       href="">Food</a></li>
+<nav class="navbar fixed-top py-3 navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+
+        <div class="site-logo">POSTAGRAM</div>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0 mt-2 gap-1">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       routerLink="/home"
+                       routerLinkActive="active"><i class="fas fa-house me-2"></i>Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       routerLink="/contacts"
+                       routerLinkActive="active"><i class="fas fa-phone me-2"></i>Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       routerLink="/terms-and-conditions"
+                       routerLinkActive="active"><i class="fas fa-globe me-2"></i>Privacy</a>
+                </li>
+
             </ul>
         </div>
     </div>

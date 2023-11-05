@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "postagram-blog": {
+      "hosting": {
+        "postagram-blog-app": [
+          "postagram-blog"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "postagram-blog"
+  }
+}

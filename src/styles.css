@@ -4,10 +4,21 @@
 :root {
     --primary-color: #273b93;
     --primary-color-hover: #5062b1;
+
     --secondary-color: #e5f1f5;
+    --secondary-color-90: rgba(229, 241, 245, 0.9);
+    --secondary-color-hover: #c5edfb;
+
     --body-text-color: #596392;
     --navbar-footer-color: #f9f9f9;
-    --accent-color: #e9df00;
+
+    --light-color-90: rgba(247, 247, 247, 0.9);
+
+    --accent-color: #fff75b;
+    --accent-color-90: rgba(255, 247, 91, 0.9);
+    --accent-color-hover: #ffe202;
+    --accent-text-color: #8a7a00;
+
     --shadow-color: #eaefff;
     --shadow-effect-color: #4f65ae;
 }
@@ -33,6 +44,11 @@ a {
 a:hover {
     text-underline-offset: 4px;
     text-decoration: underline solid var(--primary-color) 0.4px;
+}
+
+button:disabled {
+    background-color: gray !important;
+    cursor: not-allowed !important;
 }
 
 .site-logo {
@@ -65,7 +81,7 @@ a:hover {
     background-color: var(--primary-color);
 }
 
-.bg-secondary-theme{
+.bg-secondary-theme {
     background-color: var(--secondary-color);
 }
 
@@ -73,19 +89,29 @@ a:hover {
     background-color: var(--navbar-footer-color);
 }
 
-.text-theme-primary{
+.text-theme-primary {
     color: var(--primary-color);
 }
 
+.text-theme-accent {
+    color: var(--accent-text-color);
+}
 
 /*--- forms ---*/
-input {
+input,
+select {
     height: 50px;
     width: 100%;
     padding-left: 20px;
     color: var(--body-text-color) !important;
     border: 0 !important;
     box-shadow: 0px 0px 8px -1px inset gainsboro !important;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    border-color: gainsboro !important;
+    background-color: whitesmoke;
+    color: var(--body-text-color) !important;
 }
 
 form textarea {
@@ -121,4 +147,46 @@ textarea::placeholder {
 
 .btn-custom-theme:hover {
     background-color: var(--primary-color-hover);
+}
+
+.btn-outline-custom-theme {
+    min-height: 40px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.btn-outline-custom-theme:hover {
+    background-color: var(--primary-color-hover);
+    color: white;
+}
+
+/* ----------------- kolkov/angular-editor ---------------------*/
+div.angular-editor-toolbar {
+    border-radius: 0.3rem;
+}
+
+div.angular-editor-textarea {
+    min-height: 150px !important;
+    border-radius: 0.3rem;
+    max-width: inherit !important;
+    resize: vertical !important;
+    overflow: auto !important;
+    overflow-wrap: break-word !important;
+    scroll-behavior: smooth !important;
+    box-shadow: 0px 0px 8px -1px inset gainsboro !important;
+}
+
+div.angular-editor-textarea:focus,
+div.angular-editor-textarea:hover {
+    outline: none !important;
+    box-shadow: 0px 0px 14px -8px inset var(--primary-color) !important;
+}
+
+div.angular-editor-textarea::placeholder {
+    font-weight: bold;
+
+    color: var(--body-text-color);
 }
