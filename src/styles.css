@@ -52,10 +52,17 @@ button:disabled {
 }
 
 .site-logo {
-    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-size: 1.5rem;
+    height: 50px;
+    padding: 0.5rem;
     border-radius: 0.3rem;
-    background-color: var(--secondary-color);
     color: var(--primary-color);
+    margin-left: 10% !important;
 }
 
 .nav-link {

@@ -2,18 +2,9 @@ nav {
     box-shadow: 0 10px 20px -20px black;
 }
 
-.site-logo {
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    font-size: 1.5rem;
-    height: 50px;
-    padding: 0.5rem;
-    border-radius: 0.3rem;
-    color: var(--primary-color);
+.png-logo {
+    object-fit: contain;
     margin-left: 10% !important;
-    cursor: default;
 }
 
 .btn-outline-custom-theme {
@@ -26,10 +17,6 @@ button {
     height: 45px;
     display: flex;
     align-items: center;
-}
-
-a > span {
-    font-size: 0.8rem;
 }
 
 a.nav-link,
@@ -52,4 +39,15 @@ button.nav-link:hover {
     text-decoration: none;
     background-color: white;
     border: 0.5px var(--primary-color) solid;
+}
+
+@media screen and (max-width:992px) {
+    nav .png-logo {
+        height: 70px;
+        margin-left: 6.5% !important;
+    }
+
+    nav ul a.nav-link {
+        margin-left: 4% !important;
+    }
 }
