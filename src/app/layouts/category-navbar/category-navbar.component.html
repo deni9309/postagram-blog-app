@@ -5,38 +5,70 @@
                 data="/assets/postagram-logo-files/svg/logo-no-background.svg"
                 width="auto"
                 height="90"></object>
-        <button class="navbar-toggler"
+        <button class="navbar-toggler me-5"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvasLg"
+                aria-controls="navbarOffcanvasLg"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse"
-             id="navbarSupportedContent">
-            <ul class="navbar-nav m-auto mb-2 mt-2 gap-1">
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/home"
-                       routerLinkActive="active"><i class="fas fa-house me-2"></i>Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/contacts"
-                       routerLinkActive="active"><i class="fas fa-phone me-2"></i>Contacts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       routerLink="/terms-and-conditions"
-                       routerLinkActive="active"><i class="fas fa-globe me-2"></i>Privacy</a>
-                </li>
-
-            </ul>
+        <div class="offcanvas offcanvas-end custom-width"
+             tabindex="-1"
+             id="navbarOffcanvasLg"
+             aria-labelledby="navbarOffcanvasLgLabel">
+            <div class="offcanvas-header">
+                <button type="button"
+                        class="btn-close ms-3"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav m-auto mb-2 mt-2 gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           routerLink="/home"
+                           routerLinkActive="active"><i class="fas fa-house mx-lg-2 mx-auto"></i></a>
+                    </li>
+                    <ng-container *ngFor="let category of categories">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               routerLink="/categories"
+                               routerLinkActive="active">{{category['category']}}</a>
+                        </li>
+                    </ng-container>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <span class="me-2">More</span>
+                        </a>
+                        <ul class="dropdown-menu col-4 col-md-auto">
+                            <li><a class="dropdown-item"
+                                   routerLink="/about"
+                                   routerLinkActive="active">
+                                    <img src="assets/postagram-logo-files/png/p-color-transp.png"
+                                         width="14"
+                                         class="me-2">About Postagram</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                   routerLink="/contacts"
+                                   routerLinkActive="active"><i class="fas fa-phone fa-sm me-2"></i>Contacts</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item"
+                                   routerLink="/terms-and-conditions"
+                                   routerLinkActive="active"><i class="fas fa-globe fa-sm me-2"></i>Privacy</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

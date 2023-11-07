@@ -14,18 +14,24 @@ nav {
 a,
 button {
     box-sizing: border-box !important;
-    height: 45px;
+    min-height: 35px;
     display: flex;
     align-items: center;
 }
 
 a.nav-link,
 button.nav-link {
-    padding: 0.5rem;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
     color: var(--primary-color) !important;
     border-radius: .3rem;
     border: 0.5px var(--primary-color) solid;
     max-width: 140px;
+}
+
+a.dropdown-item{
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .active {
@@ -41,13 +47,26 @@ button.nav-link:hover {
     border: 0.5px var(--primary-color) solid;
 }
 
+li .dropdown-menu {
+    max-width: fit-content !important;
+}
+
+.dropdown-item {
+    border-radius: 5px;
+    color: var(--primary-color);  
+}
+
 @media screen and (max-width:992px) {
     nav .png-logo {
         height: 70px;
         margin-left: 6.5% !important;
     }
 
-    nav ul a.nav-link {
+    .custom-width{
+        width: 250px;
+    }
+    nav ul a.nav-link,
+    .dropdown-menu {
         margin-left: 4% !important;
     }
 }
