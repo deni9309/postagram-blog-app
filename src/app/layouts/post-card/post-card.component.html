@@ -1,17 +1,22 @@
-<article class="card shadow-effect">
-    <img src="https://images.pexels.com/photos/889839/pexels-photo-889839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-         alt="post-image"
-         class="card-img-top">
-    <section class="card-body">
-        <small class="bg-light text-danger text-center mx-1">Travel</small>
-        <small class="bg-light text-success text-center mx-1">Featured</small>
-        <small class="bg-light text-info text-center mx-1">Views - 100,256</small>
+<ng-container *ngIf="postItem">
+    <article class="card shadow-effect">
+        <img src="{{postItem['postImgPath']}}"
+             alt="{{postItem['title']}}"
+             class="card-img-top">
+        <section class="card-body">
+            <small class="bg-light text-danger text-center mx-1">{{postItem['category']['category']}}</small>
+            <small
+                   class="bg-light text-success text-center mx-1">{{postItem['isFeatured'] === true ? 'Featured' : ''}}</small>
+            <small class="bg-light text-info text-center mx-1">Views - {{postItem['views']}}</small>
 
-        <h5 class="text-black-50 fw-bold mt-2">Art techniques every artist must know.</h5>
-        <p>Lorem ipsum dolor sit amet. Voluptas praesentium atque error quisquam odit
-            tenetur harum distinctio sapiente libero. Raditiis dolore, magni
-            modi culpa nesciunt.</p>
+            <h5 class="text-black-50 fw-bold mt-2">{{postItem['title']}}</h5>
 
-        <small class="bg-light text-info text-center mx-1">Last updated - Sep 23, 2023</small>
-    </section>
-</article>
+            <p *ngIf="postItem['excerpt'].length > 100">{{postItem['excerpt'] | slice:0:100}}...</p>
+            <p *ngIf="postItem['excerpt'].length <= 100">{{postItem['excerpt']}}</p>
+
+            <small *ngIf="postItem['createdAt'] !== postItem['updatedAt']"
+                   class="bg-light text-info text-center mx-1">Updated -
+                {{postItem['updatedAt'].toDate() | date:"MMM d, yy hh:mm a"}}</small>
+        </section>
+    </article>
+</ng-container>

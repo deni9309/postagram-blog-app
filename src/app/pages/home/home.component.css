@@ -4,6 +4,7 @@ section.featured-section {
     padding-right: 110px;
     background-color: darkslategray;
     border-bottom: 10px solid;
+    text-align: center;
 }
 
 .parallax {
@@ -13,8 +14,8 @@ section.featured-section {
 
 @media screen and (max-width:800px) {
     :host > section.featured-section#featured-section {
-        padding-left: 0.5rem;
+        padding-left: 0rem;
         padding-bottom: 1rem;
-        padding-right: 0.5rem;
+        padding-right: 0rem;
     }
 }
