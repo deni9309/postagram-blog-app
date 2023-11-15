@@ -15,23 +15,38 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        data: {
+            title: 'Home'
+        }
     },
     {
-        path: 'category',
-        component: SingleCategoryComponent
+        path: 'category/:id',
+        component: SingleCategoryComponent,
+        data: {
+            title: 'Categories'
+        }
     },
     {
         path: 'post',
-        component: SinglePostComponent
+        component: SinglePostComponent,
+        data: {
+            title: 'Post Detail'
+        }
     },
     {
         path: 'about',
-        component: AboutUsComponent
+        component: AboutUsComponent,
+        data: {
+            title: 'About Us'
+        }
     },
     {
         path: 'terms-and-conditions',
-        component: TermsAndConditionsComponent
+        component: TermsAndConditionsComponent,
+        data: {
+            title: 'Terms & Privacy'
+        }
     },
     {
         path: 'contacts',

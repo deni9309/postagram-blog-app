@@ -13,7 +13,6 @@
             </div>
         </div>
         <div class="d-flex gap-2 flex-shrink-1 flex-wrap align-items-center justify-content-center">
-
             <ng-container *ngFor="let postDoc of posts">
                 <app-post-card [postItem]="postDoc"></app-post-card>
             </ng-container>
@@ -21,18 +20,16 @@
     </div>
 </section>
 
-<section class="container mt-5">
+<section id="latest-posts-section"
+         class="container mt-5">
     <div class="col-md-12 text-center">
         <h2>Latest Posts</h2>
         <p class="p-md-4 p-2">View the latest news and stories, aggregated from sources all over the world by POSTAGRAM!
         </p>
     </div>
     <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center">
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
+        <ng-container *ngFor="let doc of latestPosts">
+            <app-post-card [postItem]="doc"></app-post-card>
+        </ng-container>
     </div>
 </section>

@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DocumentData } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
-import { Post } from 'src/app/interfaces';
+import { LoaderService } from 'src/app/services/loader.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -10,23 +9,35 @@ import { PostService } from 'src/app/services/post.service';
     styleUrls: [ './home.component.css' ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    posts: Array<object>;
-    subscription: Subscription = new Subscription();
+    posts: Array<object> = undefined;
+    latestPosts: Array<object>;
 
-    constructor(private postService: PostService) { }
+    subscriptionFeatured: Subscription = new Subscription();
+    subscriptionLatest: Subscription = new Subscription();
+
+    constructor(private postService: PostService, public loader: LoaderService) { }
 
     ngOnInit(): void {
-        this.subscription = this.postService.getAllFeatured().subscribe({
+        this.loader.notifyForLoading(true);
+
+        this.subscriptionFeatured = this.postService.getAllFeatured().subscribe({
             next: data => {
                 this.posts = data;
+                this.loader.notifyForLoading(false);
             },
-            error: err => {
-                console.error(err);
-            }
+            error: err => console.error(err)
+        });
+
+        this.subscriptionLatest = this.postService.getLatest().subscribe({
+            next: docs => {
+                this.latestPosts = docs;
+            },
+            error: err => console.error(err)
         });
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        this.subscriptionFeatured.unsubscribe();
+        this.subscriptionLatest.unsubscribe();
     }
 }

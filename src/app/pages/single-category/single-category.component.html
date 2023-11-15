@@ -1,17 +1,25 @@
-<div class="parallax bg-secondary text-white p-lg-5 p-md-5 p-3">
-    <div class="container">
-        <h1 class="display-5 fw-medium text-uppercase pb-2 ps-lg-5 pe-lg-5">General Knowledge</h1>
-        <p class="lh-base fs-3 ps-lg-5 pe-lg-5 m-0">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+<ng-container *ngIf="currentCategory?.id">
+    <div class="parallax bg-secondary text-white p-lg-5 p-md-5 p-3">
+        <div class="container">
+            <h1 class="display-6 fw-medium text-uppercase pb-2 ps-lg-5 pe-lg-5">{{currentCategory['category']}}</h1>
+            <p class="lh-base fs-4 ps-lg-5 pe-lg-5 m-0">Read the most recent {{currentCategory['category'].toLowerCase()}} news, articles and stories at one place.</p>
+        </div>
     </div>
-</div>
 
-<section class="container mt-5 mb-5">
-    <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center">
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-        <app-post-card></app-post-card>
-    </div>
-</section>
+    <section *ngIf="posts?.length > 0"
+             class="container mt-5 mb-5">
+        <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center">
+            <ng-container *ngFor="let postDoc of posts">
+                <app-post-card [postItem]="postDoc"></app-post-card>
+            </ng-container>
+
+        </div>
+    </section>
+
+    <section *ngIf="posts?.length === 0"
+             class="container mt-5 mb-5">
+        <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center">
+            <h2 class="text-center display-6 fw-light">Sorry, couldn't find any posts of the choosen category.</h2>
+        </div>
+    </section>
+</ng-container>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
@@ -11,6 +11,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { ToastrModule } from 'ngx-toastr';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { environment } from 'src/environments/environment.variables';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,8 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 import { CommentFormComponent } from './comments/comment-form/comment-form.component';
 import { CommentListComponent } from './comments/comment-list/comment-list.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 
 @NgModule({
@@ -45,12 +48,14 @@ import { CommentListComponent } from './comments/comment-list/comment-list.compo
         CommentFormComponent,
         CommentListComponent,
         ContactUsComponent,
-        PostCardComponent
+        PostCardComponent,
+        SpinnerComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        MatProgressSpinnerModule,
         AppRoutingModule,
         provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
         provideFirestore(() => getFirestore()),
@@ -62,7 +67,12 @@ import { CommentListComponent } from './comments/comment-list/comment-list.compo
     ],
     providers: [
         ScreenTrackingService,
-        UserTrackingService
+        UserTrackingService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true
+        },
     ],
     bootstrap: [ AppComponent ]
 })

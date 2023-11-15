@@ -34,7 +34,7 @@
                     <ng-container *ngFor="let category of categories">
                         <li class="nav-item">
                             <a class="nav-link"
-                               routerLink="/categories"
+                               [routerLink]="['/category', category['id']]"
                                routerLinkActive="active">{{category['category']}}</a>
                         </li>
                     </ng-container>

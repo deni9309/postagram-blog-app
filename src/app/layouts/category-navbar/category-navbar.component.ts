@@ -16,7 +16,7 @@ export class CategoryNavbarComponent implements OnInit {
     ngOnInit(): void {
         this.categoryService.getAll$().subscribe({
             next: data => {
-                this.categories = data
+                this.categories = data;   
             },
             error: err => {
                 console.error(err);
