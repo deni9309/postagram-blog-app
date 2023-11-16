@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.loader.notifyForLoading(true);
 
-        this.subscriptionFeatured = this.postService.getAllFeatured().subscribe({
+        this.subscriptionFeatured = this.postService.getAllFeatured$().subscribe({
             next: data => {
                 this.posts = data;
                 this.loader.notifyForLoading(false);
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             error: err => console.error(err)
         });
 
-        this.subscriptionLatest = this.postService.getLatest().subscribe({
+        this.subscriptionLatest = this.postService.getLatest$().subscribe({
             next: docs => {
                 this.latestPosts = docs;
             },

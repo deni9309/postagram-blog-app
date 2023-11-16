@@ -18,6 +18,7 @@
     --accent-color-90: rgba(255, 247, 91, 0.9);
     --accent-color-hover: #ffe202;
     --accent-text-color: #8a7a00;
+    --gold-text-color: rgb(241, 177, 0);
 
     --shadow-color: #eaefff;
     --shadow-effect-color: #4f65ae;
@@ -106,6 +107,10 @@ button:disabled {
 
 .text-theme-accent {
     color: var(--accent-text-color);
+}
+
+.text-theme-gold {
+    color: var(--gold-text-color);
 }
 
 /*--- forms ---*/

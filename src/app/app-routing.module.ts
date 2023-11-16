@@ -6,6 +6,7 @@ import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
@@ -21,14 +22,14 @@ const routes: Routes = [
         }
     },
     {
-        path: 'category/:id',
+        path: 'category/:category/:id',
         component: SingleCategoryComponent,
         data: {
             title: 'Categories'
         }
     },
     {
-        path: 'post',
+        path: 'post/:id',
         component: SinglePostComponent,
         data: {
             title: 'Post Detail'
@@ -51,6 +52,14 @@ const routes: Routes = [
     {
         path: 'contacts',
         component: ContactUsComponent
+    },
+    {
+        path: 'page-not-found',
+        component: PageNotFoundComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'page-not-found'
     }
 ];
 

@@ -31,6 +31,7 @@ import { CommentFormComponent } from './comments/comment-form/comment-form.compo
 import { CommentListComponent } from './comments/comment-list/comment-list.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
         CommentListComponent,
         ContactUsComponent,
         PostCardComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,

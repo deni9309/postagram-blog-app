@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DocumentData } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, combineLatest, mergeMap, tap } from 'rxjs';
 
 import { CategoryService } from 'src/app/services/category.service';
@@ -23,7 +23,8 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
         private categoryService: CategoryService,
         private postService: PostService,
         private activatedRoute: ActivatedRoute,
-        public loader:LoaderService
+        private router: Router,
+        public loader: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -35,7 +36,7 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
                     const id = params[ 'id' ];
                     return this.categoryService.getOne$(id).pipe(
                         tap((category) => this.currentCategory = category),
-                        mergeMap(() => this.postService.getPostsByCategory(id))
+                        mergeMap(() => this.postService.getPostsByCategory$(id))
                     )
                 }),
             )
@@ -44,7 +45,12 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
                 this.posts = postsData;
                 this.loader.notifyForLoading(false);
             },
-            error: err => console.error(err)
+            error: err => {
+                this.loader.notifyForLoading(false);
+
+                console.error(err);
+                this.router.navigate([ '/page-not-found' ]);
+            }
         });
     }
 

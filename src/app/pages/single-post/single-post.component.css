@@ -10,3 +10,7 @@
  div.posts>app-post-card:not(:last-child){
     margin-bottom: .5rem;
 }
+
+span.badge{
+    left: 118%
+}

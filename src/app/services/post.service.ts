@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DocumentData, Firestore, collection, collectionData, query, where, limit, orderBy, } from '@angular/fire/firestore';
-import { Observable} from 'rxjs';
+import { DocumentData, Firestore, collection, collectionData, query, where, limit, orderBy, doc, docData, } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ export class PostService {
 
     constructor(private firestore: Firestore) { }
 
-    getAllFeatured(): Observable<DocumentData & { id: string }[] | DocumentData[]> {
+    getAllFeatured$(): Observable<DocumentData & { id: string }[] | DocumentData[]> {
         const docsRef = collection(this.firestore, 'posts');
 
         const q = query(docsRef, where('isFeatured', '==', true), limit(4));
@@ -17,7 +17,7 @@ export class PostService {
         return collectionData(q, { idField: 'id' });
     }
 
-    getLatest(): Observable<DocumentData & { id: string }[] | DocumentData[]> {
+    getLatest$(): Observable<DocumentData & { id: string }[] | DocumentData[]> {
         const docsRef = collection(this.firestore, 'posts');
 
         const q = query(docsRef, orderBy('updatedAt', 'desc'));
@@ -25,7 +25,7 @@ export class PostService {
         return collectionData(q, { idField: 'id' });
     }
 
-    getPostsByCategory(categoryId: string): Observable<DocumentData[] | DocumentData & { id: string }[]> {
+    getPostsByCategory$(categoryId: string): Observable<DocumentData[] | DocumentData & { id: string }[]> {
         const postsRef = collection(this.firestore, 'posts');
 
         const queryByCategory = query(
@@ -34,5 +34,11 @@ export class PostService {
             orderBy('updatedAt', 'desc')
         );
         return collectionData(queryByCategory, { idField: 'id' });
+    }
+
+    getOneById$(postId: string): Observable<DocumentData | DocumentData & { id: string }> {
+        const docRef = doc(this.firestore, 'posts', postId);
+
+        return docData(docRef, { idField: 'id' });
     }
 }

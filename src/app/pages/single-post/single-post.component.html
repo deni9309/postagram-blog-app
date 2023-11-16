@@ -1,40 +1,42 @@
-<section class="container">
+<section *ngIf="post"
+         class="container">
     <div
          class="d-flex flex-lg-row flex-md-row flex-column gap-2 flex-lg-shrink-0 flex-md-shrink-1 flex-sm-grow-1 align-items-lg-start align-items-md-start align-items-sm-center justify-content-center">
         <div class="col-md-8">
             <article class="card shadow-effect">
-                <img src="assets/single-post-dessert-category.jpg"
-                     alt="Berries cheesecake"
+                <img src="{{post['postImgPath']}}"
+                     alt="{{post['title']}}"
                      class="card-img-top img-fluid">
                 <div class="card-body px-lg-5 px-4">
-                    <small class="bg-light text-danger text-center mx-1">Food</small>
-                    <small class="bg-light text-success text-center mx-1">Featured</small>
-                    <small class="bg-light text-info text-center mx-1">Views - 80,256</small>
-                    <small class="bg-light text-warning text-center mx-1">LAST UPDATED - SEP 25, 2023</small>
-                    <h1 class="mt-3 mb-3">HOW TO BAKE THE PERFECT CHEESECAKE - TIPS AND TRICKS</h1>
+                    <small class="bg-light text-danger text-center mx-1">{{post['category']['category']}}</small>
+                    <small *ngIf="post['isFeatured']"
+                           class="bg-light text-success text-center mx-1">{{post['isFeatured']}}</small>
+                    <small class="bg-light text-info text-center mx-1">Views - {{post['views']}}</small>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime soluta fugit sit
-                        reiciendis. A consectetur molestiae maiores? Velit, consectetur.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto, blanditiis eaque
-                        deleniti veniam aliquid soluta nostrum quaerat sed unde ab! Perferendis ratione voluptatum rerum
-                        tempora eaque deleniti obcaecati nostrum!
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus expedita cumque deserunt.
-                        Voluptatibus atque reprehenderit autem voluptates? Ex, perferendis nemo? Eum nemo alias tempora
-                        laborum debitis. Maiores consequuntur est saepe.</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto unde repellendus aliquam
-                        reprehenderit cum voluptates saepe ipsum dolores culpa sapiente atque illo, velit, fuga odit
-                        beatae explicabo dolore enim provident.</p>
+                    <small *ngIf="post['createdAt'] !== post['updatedAt']"
+                           class="position-relative d-inline-block bg-light text-theme-gold mx-1">
+                        <span
+                              class="position-absolute top-50 translate-middle badge rounded-pill bg-danger">Updated</span>
+                        {{post['updatedAt'].toDate() | date: 'MMMM dd yyyy, hh:mm a'}}
+                    </small>
+
+                    <small *ngIf="post['createdAt'] === post['updatedAt']"
+                           class="d-inline-block bg-light text-theme-gold mx-1">
+                        {{post['createdAt'].toDate() | date: 'MMMM dd yyyy, hh:mm a'}}</small>
+                    <h2 class="mt-3 mb-3">{{post['title']}}</h2>
+                    <hr class="text-info">
+                    <div [innerHTML]="post['content']"></div>
                 </div>
             </article>
 
             <app-comment-form></app-comment-form>
             <app-comment-list></app-comment-list>
-            
+
         </div>
         <div class="posts d-flex flex-column align-items-center">
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
+           <ng-container *ngIf="latestPosts">
+            <app-post-card *ngFor="let doc of latestPosts" [postItem]="doc"></app-post-card>
+        </ng-container>
         </div>
     </div>
 </section>
