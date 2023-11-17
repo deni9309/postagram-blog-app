@@ -12,6 +12,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 import { environment } from 'src/environments/environment.variables';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +34,7 @@ import { CommentListComponent } from './comments/comment-list/comment-list.compo
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { GotoTopComponent } from './shared/goto-top/goto-top.component';
 
 
 @NgModule({
@@ -51,13 +54,16 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
         ContactUsComponent,
         PostCardComponent,
         SpinnerComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        GotoTopComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         MatProgressSpinnerModule,
+        MatIconModule,
+        MatButtonModule,
         AppRoutingModule,
         provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
         provideFirestore(() => getFirestore()),

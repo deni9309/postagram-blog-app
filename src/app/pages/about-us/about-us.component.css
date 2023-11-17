@@ -1,3 +1,12 @@
+.background {
+    background-image: url('/assets/featured-section.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    background-color: black;
+    background-attachment: fixed;
+}
+
 section p {
     text-align: justify;
 }
